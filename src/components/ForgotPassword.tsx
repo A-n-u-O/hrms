@@ -58,6 +58,7 @@ const ForgotPassword = () => {
               maxWidth: "400px",
               marginTop: "10px",
               backgroundColor: "#FFFFFF",
+              boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.2)", // Box shadow
             }}
             onSubmit={handleSubmit}>
             <Typography
@@ -93,17 +94,22 @@ const ForgotPassword = () => {
                     color: "#FFFFFF",
                     "&:hover": { backgroundColor: "blue" },
                   }}
-                  onClick={() => navigate("/ResetPassword")}>
+                  onClick={() => navigate("/ResetPasswordStart")}>
                   Reset Password
                 </Button>
               </Grid>
               <Grid item xs={12}>
-                <Link to={'/'} style={{
+                <Link
+                  to={"/"}
+                  style={{
                     fontSize: "14px",
                     color: "#0050C8",
                     textDecoration: "none",
                     cursor: "pointer",
-                  }}> Back to Sign in</Link>
+                  }}>
+                  {" "}
+                  Back to Sign in
+                </Link>
               </Grid>
             </Grid>
           </Box>

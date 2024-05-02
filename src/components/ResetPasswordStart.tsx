@@ -1,11 +1,10 @@
 import { Box, Container, CssBaseline, Typography } from "@mui/material";
 import "../Styles/resetPassword.css";
-import mail from "../assets/images/Svg/mail.svg";
-import tick from "../assets/images/Svg/tick.svg";
+import MarkEmailReadIcon from "@mui/icons-material/MarkEmailRead";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
-const ResetPassword = () => {
+const ResetPasswordStart = () => {
   const navigate = useNavigate();
   return (
     <>
@@ -49,10 +48,10 @@ const ResetPassword = () => {
               maxWidth: "400px",
               marginTop: "10px",
               backgroundColor: "#FFFFFF",
+              boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.2)", // Box shadow
             }}>
             <div>
-              <img src={mail} alt="mail icon" />
-              <img src={tick} alt="tick icon" />
+              <MarkEmailReadIcon sx={{ fontSize: "40px" }} />
             </div>
             <Typography
               textAlign={"center"}
@@ -71,7 +70,7 @@ const ResetPassword = () => {
             <Typography fontSize={"12px"} textAlign={"center"} color={"grey"}>
               Didn’t receive the password reset email?{" "}
               <Link
-                to={"/Resend"}
+                to={"/ResendMail"}
                 style={{
                   fontWeight: "600",
                   fontSize: "14px",
@@ -80,7 +79,7 @@ const ResetPassword = () => {
                   cursor: "pointer",
                 }}>
                 Resend
-              </Link>{" "}
+              </Link>
             </Typography>
             <Link
               to={"/"}
@@ -98,4 +97,4 @@ const ResetPassword = () => {
     </>
   );
 };
-export default ResetPassword;
+export default ResetPasswordStart;
