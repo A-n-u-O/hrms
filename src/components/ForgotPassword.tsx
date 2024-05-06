@@ -91,11 +91,16 @@ const ForgotPassword = () => {
                   type="submit"
                   sx={{
                     background: "#0050C8",
-                    color: "#FFFFFF",
                     "&:hover": { backgroundColor: "blue" },
                   }}
-                  onClick={() => navigate("/ResetPasswordStart")}>
-                  Reset Password
+                  >
+                  <Link to={'ResetPasswordStart'} style={{
+                    fontSize: "14px",
+                    color: "#FFFFFF",
+                    textDecoration: "none",
+                    cursor: "pointer"}}>
+                    Reset Password
+                  </Link>
                 </Button>
               </Grid>
               <Grid item xs={12}>

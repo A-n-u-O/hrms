@@ -11,15 +11,20 @@ function App() {
   return (
     <>
       <Router>
-        <Routes>
+      <Routes>
           {/* Route for the LoginPage */}
           <Route path="/" element={<LoginPage />} />
-          <Route path="/ForgotPassword" element={<ForgotPassword />} />
-          <Route path="/ResetPasswordStart" element={<ResetPasswordStart/>} />
-          <Route path="/ResendMail" element={<ResendMail/>} />
-          <Route path="/ResetPasswordEnd" element={<ResetPasswordEnd/>}/>
 
-          <Route path="*" element={<NoMatch/>}/>
+          {/* Nested routes for Forgot Password flow */}
+          <Route path="ForgotPassword">
+            <Route index element={<ForgotPassword />} /> {/* Renders ForgotPassword when on exact path */}
+            <Route path="ResetPasswordStart" element={<ResetPasswordStart />} />
+          </Route>
+
+          <Route path="/ResendMail" element={<ResendMail />} />
+          <Route path="/ResetPasswordEnd" element={<ResetPasswordEnd />} />
+
+          <Route path="*" element={<NoMatch />} />
         </Routes>
       </Router>
     </>
