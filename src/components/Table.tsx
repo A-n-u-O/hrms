@@ -6,55 +6,117 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
+import MoreVertIcon from "@mui/icons-material/MoreVert";
+import { Box } from "@mui/material";
 
-function createData(
-  name: string,
-  calories: number,
-  fat: number,
-  carbs: number,
-  protein: number
-) {
-  return { name, calories, fat, carbs, protein };
-}
-
-const rows = [
-  createData("Frozen yoghurt", 159, 6.0, 24, 4.0),
-  createData("Ice cream sandwich", 237, 9.0, 37, 4.3),
-  createData("Eclair", 262, 16.0, 24, 6.0),
-  createData("Cupcake", 305, 3.7, 67, 4.3),
-  createData("Gingerbread", 356, 16.0, 49, 3.9),
-];
+type ColumnHeadProps = {
+  label: string;
+  key: string;
+};
 
 export default function MUITable({
   columnHead,
   data,
 }: {
-  columnHead: string[];
+  columnHead: ColumnHeadProps[];
   data: any;
 }) {
+  const getStateStyle = (stat: string) => {
+    switch (stat) {
+      case "Active":
+        return {
+          color: "#5ACA75",
+          backgroundColor: "#EDF9F0",
+          border: "1px solid #5ACA75",
+          borderRadius: "4px",
+          width: "56px",
+        };
+      case "Suspended":
+        return {
+          color: "#E0B878",
+          backgroundColor: "#FFF5EA",
+          border: "1px solid #E0B878",
+          borderRadius: "4px",
+          width: "91px",
+        };
+      case "Deactivated":
+        return {
+          color: "#F48989",
+          backgroundColor: "#FEEFEF",
+          border: "1px solid #F48989",
+          borderRadius: "4px",
+          width: "106px",
+        };
+      case "Pending":
+        return {
+          color: "#E0B878",
+          backgroundColor: "#FFF5EA",
+          border: "1px solid #E0B878",
+          borderRadius: "4px",
+          width: "90px",
+        };
+      default:
+        return {};
+    }
+  };
+
   return (
-    <TableContainer component={Paper}>
+    <TableContainer
+      component={Paper}
+      sx={{
+        marginTop: "15px",
+        marginBottom: "15px",
+        marginRight: "30px",
+        marginLeft: "25px",
+        maxWidth: "1230px",
+      }}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
-        <TableHead>
+        <TableHead sx={{ backgroundColor: "#F5F5F5" }}>
           <TableRow>
             {columnHead.map((item) => {
-              return <TableCell>{item}</TableCell>;
+              return (
+                <TableCell
+                  sx={{ padding: "6px", color: "grey", fontSize: "12px" }}>
+                  {item.label}
+                </TableCell>
+              );
             })}
           </TableRow>
         </TableHead>
         <TableBody>
           {data.map((row: any) => (
-            <TableRow>
-              {columnHead.map((item) => {
-                return <TableCell>{item}</TableCell>;
+            <TableRow key={row.org}>
+              {columnHead.map((item, index) => {
+                if (item.key === "org") {
+                  return (
+                    <TableCell key={index} sx={{ fontSize: "12px" }}>
+                      <div>{row[item.key]}</div>
+                      <div style={{ color: "blue", fontWeight: "600" }}>
+                        {row.email}
+                      </div>
+                    </TableCell>
+                  );
+                } else if (item.key === "stat") {
+                  return (
+                    <TableCell key={index}>
+                      <Box
+                        sx={{
+                          padding: "6px, 8px, 6px, 8px",
+                          fontSize: "12px",
+                          ...getStateStyle(row[item.key]),
+                        }}>
+                        {row[item.key]}
+                      </Box>
+                    </TableCell>
+                  );
+                } else {
+                  return (
+                    <TableCell key={index} sx={{ fontSize: "12px" }}>
+                      {row[item.key]}
+                    </TableCell>
+                  );
+                }
               })}
-              <TableCell component="th" scope="row">
-                {row.name}
-              </TableCell>
-              <TableCell align="right">{row.calories}</TableCell>
-              <TableCell align="right">{row.fat}</TableCell>
-              <TableCell align="right">{row.carbs}</TableCell>
-              <TableCell align="right">{row.protein}</TableCell>
             </TableRow>
           ))}
         </TableBody>

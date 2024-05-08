@@ -16,6 +16,8 @@ import LogoutIcon from "@mui/icons-material/Logout";
 import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
 import AddIcon from "@mui/icons-material/Add";
 import { useNavigate } from "react-router-dom";
+import MUITable from "./Table";
+import { platform } from "os";
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -46,22 +48,31 @@ const Dashboard = () => {
                     display: "flex",
                     flexDirection: "column",
                     alignItems: "center",
+                    gap: "8px",
                   }}>
                   <img
                     src={logo}
-                    style={{ height: "100px", width: "100px" }}
+                    style={{ height: "40px", width: "120px", margin: "10px" }}
                     alt="Logo"
                   />
-                  <Typography sx={{ fontSize: "20px" }}> Prunedge </Typography>
+                  <Typography
+                    sx={{
+                      fontSize: "20px",
+                      fontWeight: "500",
+                      color: "#393A4A",
+                    }}>
+                    {" "}
+                    Prunedge{" "}
+                  </Typography>
                 </div>
                 {/* menu  */}
                 <div
                   style={{
-                    backgroundColor: "lightskyblue",
+                    backgroundColor: "#F0F5FF",
                     display: "flex",
-                    borderRadius: "4px",
+                    borderRadius: "8px",
                     padding: "10px",
-                    marginTop: "28px",
+                    marginTop: "35px",
                   }}>
                   <DashboardIcon sx={{ color: "blue", padding: "0" }} />
                   <Typography sx={{ marginLeft: "20px" }}>
@@ -103,7 +114,7 @@ const Dashboard = () => {
                 </Box>
               </div>
             </Grid>
-            <Grid item xs={10} sx={{ backgroundColor: "#FAFAFA" }}>
+            <Grid item xs={10} sx={{ backgroundColor: "#F5F5F5" }}>
               {/* organisations  */}
               {/* top */}
               <Box
@@ -114,17 +125,18 @@ const Dashboard = () => {
                 }}>
                 {/* notification  */}
                 <NotificationsNoneIcon
-                  sx={{ fontSize: "35px", margin: "5px", marginRight: "30px" }}
+                  sx={{ fontSize: "30px", margin: "5px", marginRight: "30px" }}
                 />
                 {/* profile */}
                 <Typography
                   sx={{
                     backgroundColor: "navy",
-                    padding: "10px",
+                    padding: "5px",
                     margin: "5px",
                     marginRight: "25px",
                     borderRadius: "40px",
                     color: "white",
+                    fontSize: "10px",
                   }}>
                   PA
                 </Typography>
@@ -133,26 +145,36 @@ const Dashboard = () => {
               {/* organizations heading */}
               <Box
                 sx={{
-                  borderBottom: "0.8px solid grey",
-                  borderTop: "0.8px solid grey",
+                  borderBottom: "0.6px solid grey",
+                  borderTop: "0.6px solid grey",
                   display: "flex",
                   justifyContent: "space-between",
-                  padding: "15px",
+                  padding: "10px",
                   boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.2)",
+                  alignItems: "center",
                 }}>
-                <Typography sx={{ fontWeight: "bolder", fontSize: "20px" }}>
+                <Typography
+                  sx={{
+                    fontWeight: "bolder",
+                    fontSize: "18px",
+                    marginLeft: "25px",
+                  }}>
                   Organisations
                 </Typography>
                 <Button
                   sx={{
                     display: "flex",
-                    backgroundColor: "#0050C8",
-                    color: "white",
+                    background: "#0050C8",
+                    "&:hover": { backgroundColor: "blue" },
+                    color: "#FFFFFF",
+                    textDecoration: "none",
+                    cursor: "pointer",
+                    fontSize: "15px",
                     padding: "10px, 16px, 10px, 16px",
                     borderRadius: "4px",
                   }}>
                   {" "}
-                  <AddIcon /> New Organisations
+                  <AddIcon sx={{ marginRight: "5px" }} /> New Organisations
                 </Button>
               </Box>
 
@@ -185,6 +207,7 @@ const Dashboard = () => {
                           color: "blue",
                           fontSize: "20px",
                           fontWeight: "bold",
+                          paddingRight: "3px",
                         }}>
                         14
                       </span>{" "}
@@ -215,6 +238,7 @@ const Dashboard = () => {
                           color: "blue",
                           fontSize: "20px",
                           fontWeight: "bold",
+                          paddingRight: "3px",
                         }}>
                         14
                       </span>{" "}
@@ -245,6 +269,7 @@ const Dashboard = () => {
                           color: "blue",
                           fontSize: "20px",
                           fontWeight: "bold",
+                          paddingRight: "3px",
                         }}>
                         14
                       </span>{" "}
@@ -258,6 +283,81 @@ const Dashboard = () => {
                   />
                 </Card>
               </Box>
+              <MUITable
+                data={[
+                  {
+                    org: "Prunedge",
+                    email: "email@email.com",
+                    platform: "Core HR",
+                    employees: "13,039",
+                    sector: "Private",
+                    dateOfReg: "Sep 14, 2021",
+                    stat: "Active",
+                  },
+                  {
+                    org: "Lagos State Government",
+                    email: "email@email.com",
+                    platform: "Hr Payroll",
+                    employees: "285,940",
+                    sector: "Public",
+                    dateOfReg: "Aug 25, 2021",
+                    stat: "Suspended",
+                  },
+                  {
+                    org: "Flutterwave",
+                    email: "email@email.com",
+                    platform: "Hr Payroll",
+                    employees: "0",
+                    sector: "Private",
+                    dateOfReg: "July 12, 2021",
+                    stat: "Deactivated",
+                  },
+                  {
+                    org: "National Assembly",
+                    email: "email@email.com",
+                    platform: "Hr Payroll",
+                    employees: "23,784",
+                    sector: "Public",
+                    dateOfReg: "May 15, 2021",
+                    stat: "Active",
+                  },
+                  {
+                    org: "PayStack",
+                    email: "email@email.com",
+                    platform: "Hr Payroll",
+                    employees: "0",
+                    sector: "Private",
+                    dateOfReg: "April 30, 2021",
+                    stat: "Pending",
+                  },
+                  {
+                    org: "Oyo State Government",
+                    email: "email@email.com",
+                    platform: "Hr Payroll",
+                    employees: "74,920",
+                    sector: "Public",
+                    dateOfReg: "March 23, 2021",
+                    stat: "Pending",
+                  },
+                  {
+                    org: "Andela",
+                    email: "email@email.com",
+                    platform: "Hr Payroll",
+                    employees: "12,374",
+                    sector: "Private",
+                    dateOfReg: "Fep 14, 2021",
+                    stat: "Active",
+                  },
+                ]}
+                columnHead={[
+                  { label: "Organisation", key: "org" },
+                  { label: "Platform package", key: "platform" },
+                  { label: "No Of Employee", key: "employees" },
+                  { label: "Sector", key: "sector" },
+                  { label: "Date Registered", key: "dateOfReg" },
+                  { label: "Status", key: "stat" },
+                ]}
+              />
             </Grid>
           </Grid>
         </Box>
