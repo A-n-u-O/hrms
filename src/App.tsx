@@ -6,6 +6,7 @@ import ResetPasswordStart from "./components/ResetPasswordStart";
 import ResendMail from "./components/ResendMail";
 import NoMatch from "./components/NoMatch";
 import ResetPasswordEnd from "./components/ResetPasswordEnd";
+import Dashboard from "./components/Dashboard";
 
 function App() {
   return (
@@ -16,13 +17,11 @@ function App() {
           <Route path="/" element={<LoginPage />} />
 
           {/* Nested routes for Forgot Password flow */}
-          <Route path="ForgotPassword">
-            <Route index element={<ForgotPassword />} /> {/* Renders ForgotPassword when on exact path */}
-            <Route path="ResetPasswordStart" element={<ResetPasswordStart />} />
-          </Route>
-
+          <Route path="ForgotPassword" element={<ForgotPassword />}/>
+          <Route path="ResetPasswordStart" element={<ResetPasswordStart />} />
           <Route path="/ResendMail" element={<ResendMail />} />
           <Route path="/ResetPasswordEnd" element={<ResetPasswordEnd />} />
+          <Route path="/Dashboard" element={<Dashboard/>}/>
 
           <Route path="*" element={<NoMatch />} />
         </Routes>

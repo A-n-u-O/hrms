@@ -3,12 +3,13 @@ import "../Styles/resetPassword.css";
 import MarkEmailReadIcon from "@mui/icons-material/MarkEmailRead";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import AuthLayout from "./AuthLayout";
 
 const ResetPasswordStart = () => {
   const navigate = useNavigate();
   return (
-    <>
-      <div style={{ backgroundColor: "#0050C8" }}>
+    <AuthLayout>
+      <div>
         <Container
           component={"main"}
           sx={{ padding: "20px", height: "100vh", width: "100vh" }}>
@@ -94,7 +95,7 @@ const ResetPasswordStart = () => {
           </Box>
         </Container>
       </div>
-    </>
+    </AuthLayout>
   );
 };
 export default ResetPasswordStart;

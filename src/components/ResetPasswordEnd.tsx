@@ -16,12 +16,14 @@ import {
 } from "@mui/material";
 import TaskAltIcon from "@mui/icons-material/TaskAlt";
 import { useNavigate } from "react-router-dom";
+import AuthLayout from "./AuthLayout";
 
 const ResetPasswordEnd = () => {
   const navigate = useNavigate();
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
+  const [isButtonDisabled, setIsButtonDisabled] = useState(true)
 
   const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setPassword(e.target.value);
@@ -30,18 +32,24 @@ const ResetPasswordEnd = () => {
   const handleValidatePassword = () => {
     if (password.length < 8) {
       setError("Password must be at least 8 characters long");
+      setIsButtonDisabled(true)
     } else if (!/[a-z]/.test(password)) {
       setError("Password must contain at least one lowercase letter");
+      setIsButtonDisabled(true)
     } else if (!/[A-Z]/.test(password)) {
       setError("Password must contain at least one uppercase letter");
+      setIsButtonDisabled(true)
     } else if (!/\d/.test(password)) {
       setError("Password must contain at least one digit");
+      setIsButtonDisabled(true)
     } else if (!/[@#$%^&*!]/.test(password)) {
       setError(
         "Password must contain at least one special character (@#$%^&*!)"
       );
+      setIsButtonDisabled(true)
     } else {
       setError(null);
+      setIsButtonDisabled(false)
     }
   };
 
@@ -61,8 +69,8 @@ const ResetPasswordEnd = () => {
   };
 
   return (
-    <>
-      <div style={{ backgroundColor: "#0050C8" }}>
+    <AuthLayout>
+      <div>
         <Container
           component={"main"}
           sx={{
@@ -186,7 +194,8 @@ const ResetPasswordEnd = () => {
                     color: "#FFFFFF",
                     "&:hover": { backgroundColor: "blue" },
                   }}
-                  onClick={handleClickOpen}>
+                  onClick={handleClickOpen}
+                  disabled= {isButtonDisabled}>
                   Reset Password
                 </Button>
               </Grid>
@@ -211,7 +220,7 @@ const ResetPasswordEnd = () => {
           </Dialog>
         </Container>
       </div>
-    </>
+    </AuthLayout>
   );
 };
 

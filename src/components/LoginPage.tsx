@@ -7,12 +7,16 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-// import "../Styles/loginPage.css";
 import { Link } from "react-router-dom";
+import AuthLayout from "./AuthLayout";
+// import logo from ""
 
 const LoginPage = () => {
   const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const linkStyles = {
     cursor: "pointer",
@@ -21,13 +25,19 @@ const LoginPage = () => {
     color: "#0050C8", // You can define the color here
   };
 
-  const handleSubmit = () => {
-    // Add your form submission logic here
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    //submission logic here
+    if (email.trim() !== "" || password.trim() !== "") {
+      navigate("/Dashboard");
+    } else {
+      alert("Please fill in both email and password fields.");
+    }
   };
 
   return (
     <>
-      <div style={{ backgroundColor: "#0050C8" }}>
+      <AuthLayout>
         <Container
           component={"main"}
           sx={{ padding: "20px", height: "100vh", width: "100vh" }}>
@@ -84,6 +94,8 @@ const LoginPage = () => {
                   label={"Email Address"}
                   placeholder="example@mail.com"
                   sx={{ borderRadius: "0px, 0px, 0px, 8px" }}
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                 />
               </Grid>
               <Grid item xs={12} marginTop={"12px"}>
@@ -95,6 +107,8 @@ const LoginPage = () => {
                   label={"password"}
                   placeholder="Password123"
                   sx={{ borderRadius: "0px, 0px, 0px, 8px" }}
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -140,7 +154,7 @@ const LoginPage = () => {
             </Grid>
           </Box>
         </Container>
-      </div>
+      </AuthLayout>
     </>
   );
 };
