@@ -27,27 +27,29 @@ const ResetPasswordEnd = () => {
 
   const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setPassword(e.target.value);
+    handleValidatePassword();
   };
 
   const handleValidatePassword = () => {
     if (password.length < 8) {
       setError("Password must be at least 8 characters long");
-      setIsButtonDisabled(true)
+      // setIsButtonDisabled(true)
     } else if (!/[a-z]/.test(password)) {
       setError("Password must contain at least one lowercase letter");
-      setIsButtonDisabled(true)
+      // setIsButtonDisabled(true)
     } else if (!/[A-Z]/.test(password)) {
       setError("Password must contain at least one uppercase letter");
-      setIsButtonDisabled(true)
+      // setIsButtonDisabled(true)
     } else if (!/\d/.test(password)) {
       setError("Password must contain at least one digit");
-      setIsButtonDisabled(true)
+      // setIsButtonDisabled(true)
     } else if (!/[@#$%^&*!]/.test(password)) {
       setError(
         "Password must contain at least one special character (@#$%^&*!)"
       );
-      setIsButtonDisabled(true)
+      // setIsButtonDisabled(true)
     } else {
+      console.log("Here")
       setError(null);
       setIsButtonDisabled(false)
     }
@@ -55,7 +57,6 @@ const ResetPasswordEnd = () => {
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    handleValidatePassword();
     // You can add further logic here for form submission if needed
   };
 
