@@ -17,6 +17,7 @@ import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
 import AddIcon from "@mui/icons-material/Add";
 import { useNavigate } from "react-router-dom";
 import MUITable from "../components/Table";
+import SearchBar from "../components/SearchBar";
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -428,6 +429,7 @@ const Dashboard = () => {
                   />
                 </Card>
               </Box>
+              <SearchBar/>
               <MUITable
                 data={list}
                 columnHead={[
