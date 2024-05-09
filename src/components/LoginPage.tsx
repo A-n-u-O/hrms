@@ -11,13 +11,16 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import AuthLayout from "./AuthLayout";
-// import logo from ""
+import { useAuth } from "../Context/Auth";
 
 const LoginPage = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  localStorage.setItem('email', email)
+  localStorage.setItem('password', password)
+  const auth = useAuth
   const linkStyles = {
     cursor: "pointer",
     textDecoration: "none",
