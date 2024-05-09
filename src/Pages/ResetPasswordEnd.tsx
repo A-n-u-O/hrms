@@ -34,21 +34,21 @@ const ResetPasswordEnd = () => {
   const handleValidatePassword = () => {
     if (password.length < 8) {
       setError("Password must be at least 8 characters long");
-      // setIsButtonDisabled(true)
+      setIsButtonDisabled(true)
     } else if (!/[a-z]/.test(password)) {
       setError("Password must contain at least one lowercase letter");
-      // setIsButtonDisabled(true)
+      setIsButtonDisabled(true)
     } else if (!/[A-Z]/.test(password)) {
       setError("Password must contain at least one uppercase letter");
-      // setIsButtonDisabled(true)
+      setIsButtonDisabled(true)
     } else if (!/\d/.test(password)) {
       setError("Password must contain at least one digit");
-      // setIsButtonDisabled(true)
+      setIsButtonDisabled(true)
     } else if (!/[@#$%^&*!]/.test(password)) {
       setError(
         "Password must contain at least one special character (@#$%^&*!)"
       );
-      // setIsButtonDisabled(true)
+      setIsButtonDisabled(true)
     } else {
       console.log("Here");
       setError(null);
@@ -122,12 +122,13 @@ const ResetPasswordEnd = () => {
               component={"p"}
               borderBottom={"2px solid gray"}
               color={"#393A4A"}
-              padding={"10px"}>
+              padding={"5px"}>
               Reset password
             </Typography>
             <Grid container spacing={2} color={"#393A4A"}>
               <Grid item xs={12}>
                 <PasswordInput
+                  handlePasswordChange= {handlePasswordChange}
                   setPassword={setPassword}
                   password={password}
                   error={error}

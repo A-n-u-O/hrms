@@ -6,7 +6,10 @@ type PasswordInputProps = {
   password: string;
   setPassword: React.Dispatch<React.SetStateAction<string>>;
   error?: string | null;
-  setError?: React.Dispatch<React.SetStateAction<string | null>>
+  setError?: React.Dispatch<React.SetStateAction<string | null>>;
+  handlePasswordChange?:
+    | ((e: React.ChangeEvent<HTMLInputElement>) => void)
+    | undefined;
 };
 
 const PasswordInput = (props: PasswordInputProps) => {
@@ -14,6 +17,7 @@ const PasswordInput = (props: PasswordInputProps) => {
 
   const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     props.setPassword(event.target.value);
+    props.handlePasswordChange && props.handlePasswordChange(event);
   };
 
   const togglePasswordVisibility = () => {
