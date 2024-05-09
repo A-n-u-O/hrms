@@ -10,25 +10,22 @@ import {
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-import AuthLayout from "./AuthLayout";
+import AuthLayout from "../components/AuthLayout";
 import { useAuth } from "../Context/Auth";
+import PasswordInput from "../components/Password";
+import Email from "../components/Email";
 
 const LoginPage = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  localStorage.setItem('email', email)
-  localStorage.setItem('password', password)
-  const auth = useAuth
-  const linkStyles = {
-    cursor: "pointer",
-    textDecoration: "none",
-    padding: "10px",
-    color: "#0050C8", // You can define the color here
-  };
+  localStorage.setItem("email", email);
+  localStorage.setItem("password", password);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const auth = useAuth;
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>, password: any) => {
     e.preventDefault();
     //submission logic here
     if (email.trim() !== "" || password.trim() !== "") {
@@ -80,7 +77,7 @@ const LoginPage = () => {
               backgroundColor: "#FFFFFF",
               boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.2)", // Box shadow
             }}
-            onSubmit={handleSubmit}>
+            onSubmit={(e) => handleSubmit(e, password)}>
             <Typography
               component={"p"}
               borderBottom={"2px solid gray"}
@@ -89,30 +86,10 @@ const LoginPage = () => {
             </Typography>
             <Grid container spacing={2} color={"#393A4A"}>
               <Grid item xs={12} marginTop={"12px"}>
-                <TextField
-                  required
-                  fullWidth
-                  variant="outlined"
-                  id="outlined-basic email"
-                  label={"Email Address"}
-                  placeholder="example@mail.com"
-                  sx={{ borderRadius: "0px, 0px, 0px, 8px" }}
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                />
+                <Email setEmail= {setEmail} email= {email}/>
               </Grid>
               <Grid item xs={12} marginTop={"12px"}>
-                <TextField
-                  required
-                  fullWidth
-                  variant="outlined"
-                  id="outlined-basic password"
-                  label={"password"}
-                  placeholder="Password123"
-                  sx={{ borderRadius: "0px, 0px, 0px, 8px" }}
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                />
+                <PasswordInput setPassword={setPassword} password={password} />
               </Grid>
               <Grid item xs={12}>
                 <Link

@@ -16,14 +16,15 @@ import {
 } from "@mui/material";
 import TaskAltIcon from "@mui/icons-material/TaskAlt";
 import { useNavigate } from "react-router-dom";
-import AuthLayout from "./AuthLayout";
+import AuthLayout from "../components/AuthLayout";
+import PasswordInput from "../components/Password";
 
 const ResetPasswordEnd = () => {
   const navigate = useNavigate();
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [open, setOpen] = useState(false);
-  const [isButtonDisabled, setIsButtonDisabled] = useState(true)
+  const [isButtonDisabled, setIsButtonDisabled] = useState(true);
 
   const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setPassword(e.target.value);
@@ -49,9 +50,9 @@ const ResetPasswordEnd = () => {
       );
       // setIsButtonDisabled(true)
     } else {
-      console.log("Here")
+      console.log("Here");
       setError(null);
-      setIsButtonDisabled(false)
+      setIsButtonDisabled(false);
     }
   };
 
@@ -66,7 +67,7 @@ const ResetPasswordEnd = () => {
 
   const handleClose = () => {
     setOpen(false);
-    navigate('/')
+    navigate("/");
   };
 
   return (
@@ -126,18 +127,11 @@ const ResetPasswordEnd = () => {
             </Typography>
             <Grid container spacing={2} color={"#393A4A"}>
               <Grid item xs={12}>
-                <TextField
-                  required
-                  fullWidth
-                  variant="outlined"
-                  id="outlined-basic password"
-                  label={"Password"}
-                  type="password"
-                  value={password}
-                  onChange={handlePasswordChange}
-                  error={!!error}
-                  helperText={error}
-                  sx={{ borderRadius: "0px, 0px, 0px, 8px" }}
+                <PasswordInput
+                  setPassword={setPassword}
+                  password={password}
+                  error={error}
+                  setError={setError}
                 />
               </Grid>
               <Grid item xs={12} textAlign={"center"}>
@@ -196,7 +190,7 @@ const ResetPasswordEnd = () => {
                     "&:hover": { backgroundColor: "blue" },
                   }}
                   onClick={handleClickOpen}
-                  disabled= {isButtonDisabled}>
+                  disabled={isButtonDisabled}>
                   Reset Password
                 </Button>
               </Grid>

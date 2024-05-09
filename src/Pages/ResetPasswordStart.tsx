@@ -3,7 +3,7 @@ import "../Styles/resetPassword.css";
 import MarkEmailReadIcon from "@mui/icons-material/MarkEmailRead";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-import AuthLayout from "./AuthLayout";
+import AuthLayout from "../components/AuthLayout";
 
 const ResetPasswordStart = () => {
   const navigate = useNavigate();

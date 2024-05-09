@@ -1,6 +1,6 @@
 import { Box, Button, Container, CssBaseline, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import AuthLayout from "./AuthLayout";
+import AuthLayout from "../components/AuthLayout";
 
 const ResendMail = () => {
   const navigate = useNavigate();

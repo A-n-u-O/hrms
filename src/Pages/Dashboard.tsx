@@ -16,7 +16,7 @@ import LogoutIcon from "@mui/icons-material/Logout";
 import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
 import AddIcon from "@mui/icons-material/Add";
 import { useNavigate } from "react-router-dom";
-import MUITable from "./Table";
+import MUITable from "../components/Table";
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -154,7 +154,9 @@ const Dashboard = () => {
               sx={{
                 fontSize: "12px",
                 ...getStateStyle(stat),
-              }}>{stat}</Box>
+              }}>
+              {stat}
+            </Box>
           </Box>
         </>
       ),
