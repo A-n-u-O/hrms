@@ -18,6 +18,8 @@ import AddIcon from "@mui/icons-material/Add";
 import { useNavigate } from "react-router-dom";
 import MUITable from "../components/Table";
 import SearchBar from "../components/SearchBar";
+import MoreVertIcon from "@mui/icons-material/MoreVert";
+
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -158,6 +160,7 @@ const Dashboard = () => {
               }}>
               {stat}
             </Box>
+            <MoreVertIcon/>
           </Box>
         </>
       ),
@@ -168,8 +171,7 @@ const Dashboard = () => {
   });
   return (
     <>
-      <div style={{ maxWidth: "1550px", overflow: "hidden" }}>
-        <Box sx={{}}>
+        <Box sx={{ maxWidth: "1550px", overflow: "hidden", height: '100vh' }}>
           <CssBaseline />
           <Grid
             container
@@ -340,9 +342,9 @@ const Dashboard = () => {
                     display: "flex",
                     justifyContent: "space-between",
                     alignItems: "center",
-                    width: "380px",
-                    height: "91px",
-                    padding: "15px",
+                    width: "370px",
+                    height: "81px",
+                    padding: "12px",
                     color: "grey",
                   }}>
                   <Typography sx={{ display: "flex", flexDirection: "column" }}>
@@ -371,9 +373,9 @@ const Dashboard = () => {
                     display: "flex",
                     justifyContent: "space-between",
                     alignItems: "center",
-                    width: "380px",
-                    height: "91px",
-                    padding: "15px",
+                    width: "370px",
+                    height: "81px",
+                    padding: "12px",
                     color: "grey",
                   }}>
                   <Typography sx={{ display: "flex", flexDirection: "column" }}>
@@ -402,9 +404,9 @@ const Dashboard = () => {
                     display: "flex",
                     justifyContent: "space-between",
                     alignItems: "center",
-                    width: "380px",
-                    height: "91px",
-                    padding: "15px",
+                    width: "370px",
+                    height: "81px",
+                    padding: "12px",
                     color: "grey",
                   }}>
                   <Typography sx={{ display: "flex", flexDirection: "column" }}>
@@ -444,7 +446,6 @@ const Dashboard = () => {
             </Grid>
           </Grid>
         </Box>
-      </div>
     </>
   );
 };
