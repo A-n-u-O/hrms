@@ -6,8 +6,6 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
-import { Box } from "@mui/material";
 
 type ColumnHeadProps = {
   label: string;
@@ -28,9 +26,9 @@ export default function MUITable({
       sx={{
         marginTop: "15px",
         marginBottom: "15px",
-        marginRight: "30px",
+        marginRight: "25px",
         marginLeft: "25px",
-        maxWidth: "1200px",
+        maxWidth: "1230px",
       }}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead sx={{ backgroundColor: "#F5F5F5" }}>

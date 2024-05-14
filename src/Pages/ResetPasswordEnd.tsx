@@ -28,31 +28,37 @@ const ResetPasswordEnd = () => {
 
   const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setPassword(e.target.value);
-    handleValidatePassword();
+    handleValidatePassword(password);
   };
 
-  const handleValidatePassword = () => {
-    if (password.length < 8) {
-      setError("Password must be at least 8 characters long");
-      setIsButtonDisabled(true)
-    } else if (!/[a-z]/.test(password)) {
-      setError("Password must contain at least one lowercase letter");
-      setIsButtonDisabled(true)
-    } else if (!/[A-Z]/.test(password)) {
-      setError("Password must contain at least one uppercase letter");
-      setIsButtonDisabled(true)
-    } else if (!/\d/.test(password)) {
-      setError("Password must contain at least one digit");
-      setIsButtonDisabled(true)
-    } else if (!/[@#$%^&*!]/.test(password)) {
-      setError(
-        "Password must contain at least one special character (@#$%^&*!)"
-      );
-      setIsButtonDisabled(true)
-    } else {
-      console.log("Here");
-      setError(null);
-      setIsButtonDisabled(false);
+  const handleValidatePassword = (password: string) => {
+    switch (true) {
+      case password.length < 8:
+        setError("Password must be at least 8 characters long");
+        setIsButtonDisabled(true);
+        break;
+      case !/[a-z]/.test(password):
+        setError("Password must contain at least one lowercase letter");
+        setIsButtonDisabled(true);
+        break;
+      case !/[A-Z]/.test(password):
+        setError("Password must contain at least one uppercase letter");
+        setIsButtonDisabled(true);
+        break;
+      case !/\d/.test(password):
+        setError("Password must contain at least one digit");
+        setIsButtonDisabled(true);
+        break;
+      case !/[@#$%^&*!]/.test(password):
+        setError(
+          "Password must contain at least one special character (@#$%^&*!)"
+        );
+        setIsButtonDisabled(true);
+        break;
+      default:
+        console.log("Here");
+        setError(null);
+        setIsButtonDisabled(false);
     }
   };
 
@@ -128,7 +134,7 @@ const ResetPasswordEnd = () => {
             <Grid container spacing={2} color={"#393A4A"}>
               <Grid item xs={12}>
                 <PasswordInput
-                  handlePasswordChange= {handlePasswordChange}
+                  handlePasswordChange={handlePasswordChange}
                   setPassword={setPassword}
                   password={password}
                   error={error}
