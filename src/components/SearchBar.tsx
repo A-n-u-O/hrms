@@ -10,9 +10,6 @@ import {
   Typography,
 } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
-import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
-import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-import { useState } from "react";
 
 const noOfItems = [10, 5, 3];
 
@@ -22,7 +19,7 @@ type SearchBarProps = {
   pageSize: string | number;
   handlePageSize: (value: string | number) => void;
   page: number;
-  handlepage: (search: number) => void;
+  handlePage: (search: number) => void;
   total: number;
 };
 
@@ -32,7 +29,7 @@ const SearchBar = ({
   pageSize,
   handlePageSize,
   page,
-  handlepage,
+  handlePage,
   total,
 }: SearchBarProps) => {
   const numberPage = (page - 1) * Number(pageSize) + 1;
@@ -70,13 +67,14 @@ const SearchBar = ({
           Showing {numberPage} to {currentPage} of {total} entries
         </Typography>
         <FormControl sx={{ m: 1, width: "110px", border: "none" }} size="small">
+        <InputLabel id="demo-select-small-label">Pages</InputLabel>
           <Select
             id="demo-select-small"
             value={pageSize}
             label="items"
             onChange={(e) => {
               handlePageSize(e.target.value);
-              handlepage(1);
+              handlePage(1);
             }}
           >
             {/* <MenuItem value="">
@@ -94,7 +92,7 @@ const SearchBar = ({
             shape="rounded"
             page={page}
             onChange={(e, value) => {
-              handlepage(value);
+              handlePage(value);
             }}
             sx={{ fontSize: "15px" }}
           />
