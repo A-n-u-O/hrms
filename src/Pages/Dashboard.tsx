@@ -258,14 +258,12 @@ const Dashboard = () => {
               display: "flex",
               justifyContent: "space-between",
               maxWidth: "230px",
-            }}
-          >
+            }}>
             <Box
               sx={{
                 fontSize: "12px",
                 ...getStateStyle(stat),
-              }}
-            >
+              }}>
               {stat}
             </Box>
             <MoreVertIcon />
@@ -290,8 +288,7 @@ const Dashboard = () => {
               display: "flex",
               flexDirection: "column",
               boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.2)",
-            }}
-          >
+            }}>
             <div>
               {/* company name */}
               <div
@@ -300,8 +297,7 @@ const Dashboard = () => {
                   flexDirection: "column",
                   alignItems: "center",
                   gap: "8px",
-                }}
-              >
+                }}>
                 <img
                   src={logo}
                   style={{ height: "40px", width: "120px", margin: "10px" }}
@@ -312,8 +308,7 @@ const Dashboard = () => {
                     fontSize: "20px",
                     fontWeight: "500",
                     color: "#393A4A",
-                  }}
-                >
+                  }}>
                   {" "}
                   Prunedge{" "}
                 </Typography>
@@ -326,8 +321,7 @@ const Dashboard = () => {
                   borderRadius: "8px",
                   padding: "10px",
                   marginTop: "35px",
-                }}
-              >
+                }}>
                 <DashboardIcon sx={{ color: "blue", padding: "0" }} />
                 <Typography sx={{ marginLeft: "20px" }}>
                   Organisations
@@ -343,11 +337,9 @@ const Dashboard = () => {
                   color: "grey",
                   margin: "5px",
                   padding: "5px",
-                  alignItems: "flex-start",
-                  marginTop: "28pc",
-                }}
-              >
-                {/* Use the imported settings icon SVG */}
+                  alignItems: "flex-end",
+                  marginTop: "38pc",
+                }}>
                 <img
                   src={settingsIcon}
                   style={{ height: "24px", width: "24px", color: "grey" }}
@@ -365,8 +357,7 @@ const Dashboard = () => {
                   margin: "5px",
                   padding: "5px",
                   cursor: "pointer",
-                }}
-              >
+                }}>
                 <LogoutIcon />
                 <Typography sx={{ marginLeft: "20px" }}>LogOut</Typography>
               </Box>
@@ -380,8 +371,7 @@ const Dashboard = () => {
                 display: "flex",
                 alignItems: "flex-end",
                 justifyContent: "flex-end",
-              }}
-            >
+              }}>
               {/* notification  */}
               <NotificationsNoneIcon
                 sx={{ fontSize: "30px", margin: "5px", marginRight: "30px" }}
@@ -396,8 +386,7 @@ const Dashboard = () => {
                   borderRadius: "40px",
                   color: "white",
                   fontSize: "10px",
-                }}
-              >
+                }}>
                 PA
               </Typography>
             </Box>
@@ -412,15 +401,13 @@ const Dashboard = () => {
                 padding: "10px",
                 boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.2)",
                 alignItems: "center",
-              }}
-            >
+              }}>
               <Typography
                 sx={{
                   fontWeight: "bolder",
                   fontSize: "18px",
                   marginLeft: "25px",
-                }}
-              >
+                }}>
                 Organisations
               </Typography>
               <Button
@@ -434,8 +421,7 @@ const Dashboard = () => {
                   fontSize: "15px",
                   padding: "10px, 16px, 10px, 16px",
                   borderRadius: "4px",
-                }}
-              >
+                }}>
                 {" "}
                 <AddIcon sx={{ marginRight: "5px" }} /> New Organisations
               </Button>
@@ -449,10 +435,8 @@ const Dashboard = () => {
               ml="25px"
               sx={{
                 display: "flex",
-                gap: "4",
                 justifyContent: "space-between",
-              }}
-            >
+              }}>
               <Card
                 sx={{
                   display: "flex",
@@ -460,10 +444,9 @@ const Dashboard = () => {
                   alignItems: "center",
                   width: "370px",
                   height: "81px",
-                  padding: "12px",
+                  padding: "20px",
                   color: "grey",
-                }}
-              >
+                }}>
                 <Typography sx={{ display: "flex", flexDirection: "column" }}>
                   <Typography>Core Hr</Typography>
                   <Typography>
@@ -473,8 +456,7 @@ const Dashboard = () => {
                         fontSize: "20px",
                         fontWeight: "bold",
                         paddingRight: "3px",
-                      }}
-                    >
+                      }}>
                       14
                     </span>{" "}
                     organisations
@@ -482,7 +464,7 @@ const Dashboard = () => {
                 </Typography>
                 <img
                   src={recruitmentIcon}
-                  style={{ height: "24px", width: "24px", color: "grey" }}
+                  style={{ height: "30px", width: "30px", color: "grey" }}
                   alt="Settings"
                 />
               </Card>
@@ -493,10 +475,9 @@ const Dashboard = () => {
                   alignItems: "center",
                   width: "370px",
                   height: "81px",
-                  padding: "12px",
+                  padding: "20px",
                   color: "grey",
-                }}
-              >
+                }}>
                 <Typography sx={{ display: "flex", flexDirection: "column" }}>
                   <Typography>Core Payroll</Typography>
                   <Typography>
@@ -506,8 +487,7 @@ const Dashboard = () => {
                         fontSize: "20px",
                         fontWeight: "bold",
                         paddingRight: "3px",
-                      }}
-                    >
+                      }}>
                       14
                     </span>{" "}
                     organisations
@@ -515,7 +495,7 @@ const Dashboard = () => {
                 </Typography>
                 <img
                   src={payrollIcon}
-                  style={{ height: "24px", width: "24px", color: "grey" }}
+                  style={{ height: "30px", width: "30px", color: "grey" }}
                   alt="Settings"
                 />
               </Card>
@@ -526,10 +506,9 @@ const Dashboard = () => {
                   alignItems: "center",
                   width: "370px",
                   height: "81px",
-                  padding: "12px",
+                  padding: "20px",
                   color: "grey",
-                }}
-              >
+                }}>
                 <Typography sx={{ display: "flex", flexDirection: "column" }}>
                   <Typography>HR & Payroll</Typography>
                   <Typography>
@@ -539,8 +518,7 @@ const Dashboard = () => {
                         fontSize: "20px",
                         fontWeight: "bold",
                         paddingRight: "3px",
-                      }}
-                    >
+                      }}>
                       14
                     </span>{" "}
                     organisations
@@ -548,7 +526,7 @@ const Dashboard = () => {
                 </Typography>
                 <img
                   src={employeeIcon}
-                  style={{ height: "24px", width: "24px", color: "grey" }}
+                  style={{ height: "30px", width: "30px", color: "grey" }}
                   alt="Settings"
                 />
               </Card>
